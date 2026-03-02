@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://SEU-USUARIO.github.io/club-da-biblia/",
+  "homepage": "https://odanielmenezes.github.io/club-da-biblia/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
