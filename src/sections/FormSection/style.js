@@ -95,11 +95,41 @@ export const CheckList = styled.div`
 `
 
 export const Feedback = styled.p`
-  margin-top: 0.7rem;
-  color: ${({ theme }) => theme.colors.success};
-  min-height: 1.2rem;
+  margin-top: 0.8rem;
+  min-height: 1.25rem;
+  font-size: 0.92rem;
+  color: ${({ theme }) => theme.colors.textMuted};
+  transition: color 0.25s ease;
 
-  &[data-error='true'] {
+  &[data-state='error'] {
     color: ${({ theme }) => theme.colors.danger};
   }
+
+  &[data-state='success'] {
+    color: ${({ theme }) => theme.colors.success};
+  }
+
+  &[data-state='loading'] {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`
+
+export const SuccessCard = styled.div`
+  margin-top: 0.2rem;
+  padding: 0.15rem 0 0;
+`
+
+export const SuccessTitle = styled.h3`
+  font-size: 1.02rem;
+  color: ${({ theme }) => theme.colors.success};
+`
+
+export const SuccessBody = styled.p`
+  margin-top: 0.4rem;
+  color: ${({ theme }) => theme.colors.textMuted};
+  max-width: 46ch;
+`
+
+export const SuccessActions = styled.div`
+  margin-top: 0.8rem;
 `

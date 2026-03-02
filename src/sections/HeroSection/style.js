@@ -52,13 +52,33 @@ export const CounterLabel = styled.p`
 
 export const MetaInfo = styled.div`
   margin-top: 1rem;
-  display: flex;
-  gap: 0.65rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
 `
 
 export const CtaWrap = styled.div`
   margin-top: 1.5rem;
+
+  button {
+    width: 100%;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    button {
+      width: fit-content;
+    }
+  }
 `
 
 export const IllustrationWrap = styled.div`

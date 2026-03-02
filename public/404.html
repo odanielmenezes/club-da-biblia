@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      ;(() => {
+        const path = window.location.pathname
+        const repoBase = '/club-da-biblia'
+        const insideRepoPath = path.startsWith(repoBase) ? path.slice(repoBase.length) || '/' : '/'
+        const query = window.location.search ? window.location.search.slice(1) : ''
+
+        const redirectParams = new URLSearchParams()
+        redirectParams.set('p', insideRepoPath)
+        if (query) {
+          redirectParams.set('q', query)
+        }
+
+        window.location.replace(`${repoBase}/?${redirectParams.toString()}${window.location.hash || ''}`)
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>

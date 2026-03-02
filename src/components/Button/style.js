@@ -24,6 +24,17 @@ const variants = {
       box-shadow: 0 0 16px rgba(244, 93, 34, 0.2);
     }
   `,
+  success: css`
+    background: linear-gradient(140deg, #31a24c 0%, #25a343 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(49, 162, 76, 0.25);
+
+    &:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 10px 25px rgba(49, 162, 76, 0.3);
+    }
+  `,
 }
 
 export const StyledButton = styled.button`

@@ -8,6 +8,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      ;(() => {
+        const params = new URLSearchParams(window.location.search)
+        const redirectedPath = params.get('p')
+        if (!redirectedPath) return
+
+        const redirectedQuery = params.get('q')
+        const nextPath = `${redirectedPath}${redirectedQuery ? `?${redirectedQuery}` : ''}${window.location.hash || ''}`
+        window.history.replaceState(null, '', nextPath)
+      })()
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

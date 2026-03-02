@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Footer from './components/Footer/component'
 import Header from './components/Header/component'
+import AdminPage from './pages/AdminPage'
 import FormSection from './sections/FormSection/component'
 import HeroSection from './sections/HeroSection/component'
 import MerchSection from './sections/MerchSection/component'
@@ -11,6 +12,10 @@ const Page = styled.main`
 `
 
 function App() {
+  if (/\/admin\/?$/.test(globalThis.location.pathname)) {
+    return <AdminPage />
+  }
+
   return (
     <>
       <Header />

@@ -12,7 +12,7 @@ export const FooterGrid = styled.div`
   gap: 1.5rem;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
     gap: 2rem;
   }
 `
@@ -38,6 +38,45 @@ export const Link = styled.a`
 
   &:hover {
     color: ${({ theme }) => theme.colors.textPrimary};
+  }
+`
+
+export const SocialList = styled.ul`
+  list-style: none;
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.6rem;
+`
+
+export const SocialLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  color: ${({ theme }) => theme.colors.textMuted};
+  background: ${({ theme }) => theme.colors.backgroundPrimary};
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.primary};
+    transform: translateY(-1px);
+  }
+`
+
+export const SocialIcon = styled.span`
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
 `
 

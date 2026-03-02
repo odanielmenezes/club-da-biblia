@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import bibleHeroImage from '../../assets/bible-hero.png'
-import logo from '../../assets/club-da-biblia-logo.png'
 import Button from '../../components/Button/component'
 import Container from '../../components/Container/component'
 import CountdownCard from '../../components/CountdownCard/component'
@@ -14,7 +13,6 @@ import {
   Eyebrow,
   HeroGrid,
   IllustrationWrap,
-  Logo,
   MetaInfo,
   Subtitle,
   Title,
@@ -36,6 +34,19 @@ function parseDuration(totalSeconds: number) {
 function HeroSection() {
   const startedAt = useMemo(() => Date.now(), [])
   const [elapsed, setElapsed] = useState(() => initialSeconds)
+
+  const handleJoinClick = () => {
+    const target = document.getElementById('comunidade')
+    if (!target) return
+
+    const headerOffset = 96
+    const top = target.getBoundingClientRect().top + window.scrollY - headerOffset
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: 'smooth',
+    })
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -80,7 +91,7 @@ function HeroSection() {
             </MetaInfo>
 
             <CtaWrap>
-              <Button size="lg">Participar gratuitamente</Button>
+              <Button size="lg" onClick={handleJoinClick}>Participar gratuitamente</Button>
             </CtaWrap>
           </motion.div>
 

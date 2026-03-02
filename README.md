@@ -6,6 +6,7 @@ Landing page cristã moderna, persuasiva e responsiva para o projeto Club da Bí
 
 - Vite
 - React
+- Node.js + Express (API)
 - Styled-components (100% da estilização)
 - Framer Motion (animações suaves)
 
@@ -75,6 +76,10 @@ src/
 
 ```bash
 npm install
+# terminal 1
+npm run server
+
+# terminal 2
 npm run dev
 ```
 
@@ -83,6 +88,39 @@ npm run dev
 ```bash
 npm run build
 npm run preview
+```
+
+## Backend de leads e exportacao
+
+Copie `.env.example` para `.env` e ajuste as variaveis.
+
+Variaveis principais:
+
+```bash
+PORT=8787
+ADMIN_MASTER_KEY=sua-chave-admin-forte
+EXPORT_KEY_TTL_MINUTES=30
+VITE_API_BASE_URL=
+VITE_WHATSAPP_COMMUNITY_URL=https://chat.whatsapp.com/SEU_LINK_DA_COMUNIDADE
+```
+
+Rotas disponiveis:
+
+- `POST /api/leads`: salva nome, whatsapp e email.
+- `POST /api/admin/rotate-key`: gera nova chave de exportacao (header `x-admin-key`).
+- `GET /api/export?key=...`: baixa CSV e rotaciona a chave automaticamente.
+
+Exemplo para gerar chave de exportacao:
+
+```bash
+curl -X POST http://localhost:8787/api/admin/rotate-key \
+	-H "x-admin-key: SUA_ADMIN_MASTER_KEY"
+```
+
+Resposta:
+
+```json
+{ "ok": true, "key": "...", "expiresAt": 123456789 }
 ```
 
 ## Deploy no GitHub Pages

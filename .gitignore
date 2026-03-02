@@ -12,6 +12,20 @@ dist
 dist-ssr
 *.local
 
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Local backend data and exports
+server/data/*.json
+_backend_upload/server/data/*.json
+admin-export.csv
+
+# Deployment artifacts
+_backend_upload*.zip
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
